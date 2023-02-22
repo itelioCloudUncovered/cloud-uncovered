@@ -82,6 +82,11 @@ if((Get-PrinterDriver -Name $DriverName -ErrorAction SilentlyContinue)) {
 
     Add-Printer -Name $PrinterName -PortName $PortName -DriverName $DriverName
 
+} else {
+
+    Write-Warning "Treiber nicht installiert"
+    exit 1
+
 }
 
 #nach der Installation etwas abwarten, um das Detection Script zu verzögern
