@@ -31,7 +31,7 @@ Connect-ExchangeOnline
 Write-Host "MessageRecallEnabled: $((Get-OrganizationConfig).MessageRecallEnabled)"
 Write-Host "RecallReadMessagesEnabled: $((Get-OrganizationConfig).RecallReadMessagesEnabled)"
 
-#--Aktivierung--#
+#--Deaktivierung--#
 
 #Message Recall allgemein deaktivieren
 Set-OrganizationConfig -MessageRecallEnabled $false
@@ -40,7 +40,7 @@ Set-OrganizationConfig -MessageRecallEnabled $false
 Set-OrganizationConfig -RecallReadMessagesEnabled $false
 
 
-#--Deaktivierung--#
+#--Aktivierung--#
 
 #Message Recall allgemein aktivieren
 Set-OrganizationConfig -MessageRecallEnabled $true
