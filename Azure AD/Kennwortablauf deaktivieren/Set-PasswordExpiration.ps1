@@ -22,11 +22,13 @@ if (!(Get-Module -ListAvailable -Name Microsoft.Graph)) {
 }
 
 #mit Graph verbinden
-Connect-MgGraph
+Connect-MgGraph -Scopes {User.ReadWrite.All}
 
 
 #aktuelle Kennwortrichtlinie prüfen
-Get-MgUser -UserId $UserPrincipalName -Property UserPrincipalName, PasswordPolicies
+Get-MGuser -UserId $UserPrincipalName -Property UserPrincipalName, PasswordPolicies | Select-Object UserPrincipalName,@{
+    N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}
+}
 
 #Kennwortrichtlinie setzen, sodass das Kennwort nie abläuft
 Update-MgUser -UserId $UserPrincipalName -PasswordPolicies DisablePasswordExpiration -PassThru
