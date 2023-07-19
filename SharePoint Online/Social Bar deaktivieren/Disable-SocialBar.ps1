@@ -23,9 +23,9 @@ if (!(Get-Module -ListAvailable -Name Microsoft.Online.SharePoint.PowerShell)) {
 $AdminSiteURL= "https://tenant-admin.sharepoint.com"
 
 #mit SPO verbinden
-Connect-SPOService -Url $AdminSiteURL -Credential (Get-Credential)
+Connect-SPOService -Url $AdminSiteURL
 
-#Organisationsweit deaktivieren
+#organisationsweit deaktivieren
 #zum Aktivieren das Ende auf $false ändern
 Set-SPOTenant -SocialBarOnSitePagesDisabled $true
 
