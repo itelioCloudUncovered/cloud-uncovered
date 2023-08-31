@@ -18,7 +18,7 @@ Install-Module EntraExporter
 
 # Export über Powershell 7 ausführen
 Connect-EntraExporter
-Export-Entra -Path <Pfad>
+Export-Entra -Path "C:\Temp\EntraExport\"
 
 
 # Gültige Werte für -Type
